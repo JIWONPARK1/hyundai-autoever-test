@@ -1,3 +1,5 @@
+"use client";
+
 import { inputCss } from "./Input.styles";
 
 export const Input = (props: React.InputHTMLAttributes<HTMLInputElement>) => {

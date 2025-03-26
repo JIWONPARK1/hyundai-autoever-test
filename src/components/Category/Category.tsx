@@ -1,5 +1,7 @@
+"use client";
+
 import { categoryCss } from "./Category.styles";
-import { CategoryItem } from "@/app/types/qna.type";
+import { CategoryItem } from "@/types/qna.type";
 export const Category = ({
   categorys,
   selectedCategory,

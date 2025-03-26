@@ -1,5 +1,7 @@
+"use client";
+
 import { tabCss } from "./Tab.styles";
-import { TabItem } from "@/app/types/qna.type";
+import { TabItem } from "@/types/qna.type";
 
 export const Tab = ({
   tabs,

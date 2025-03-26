@@ -1,5 +1,7 @@
+"use client";
+
 import { qnqListCss } from "./QnqList.styles";
-import { QnaItem } from "@/app/types/qna.type";
+import { QnaItem } from "@/types/qna.type";
 import { useState } from "react";
 export const QnqList = ({
   category,
@@ -34,8 +36,12 @@ export const QnqList = ({
               openIndex === item.id && qnqListCss.isSpread,
             ]}
           >
-            <div css={qnqListCss.answerInner}>{item.answer}</div>
+            <div
+              css={qnqListCss.answerInner}
+              dangerouslySetInnerHTML={{ __html: item.answer }}
+            />
           </div>
+          ₩
         </li>
       ))}
     </ul>

@@ -1,4 +1,4 @@
-export const data = {
+export const qnaData = {
   pageInfo: {
     totalRecord: 2,
     offset: 0,
