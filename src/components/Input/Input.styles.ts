@@ -20,6 +20,7 @@ export const inputCss = {
     font-size: 1rem;
     height: var(--btn-xlg2);
     padding-left: 16px;
+    background-color: #fff;
     padding-right: calc(
       var(--ic-sm) + var(--clear-space) + var(--btn-xlg2) - 2px
     );
