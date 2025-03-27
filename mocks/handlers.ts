@@ -1,21 +1,23 @@
 // src/mocks/handlers.ts
 import { http, HttpResponse } from "msw";
-import { qnaData } from "@/app/qna/data";
-import { QnaItem } from "@/types/qna.type";
+import { faqData } from "@/app/faq/data";
+import { Tab, Category } from "@/types/faq.type";
 
 export const handlers = [
-  http.get("/api/qna", ({ request }) => {
+  http.get("/api/faq", ({ request }) => {
     const url = new URL(request.url);
-    const tab = url.searchParams.get("tab");
-    const search = url.searchParams.get("search");
-    // Mock 데이터 필터링 로직 추가 (예: 탭과 검색어 기반)
-    const filteredItems = qnaData.items.filter((item: QnaItem) => {
-      return (
-        (!tab || item.tab === tab) &&
-        (!search || item.question.includes(search))
-      );
-    });
+    const tab: Tab = url.searchParams.get("tab") as Tab;
+    const faqCategoryID: Category = url.searchParams.get(
+      "faqCategoryID"
+    ) as Category;
 
-    return HttpResponse.json({ items: filteredItems });
+    const tabItems = faqData[tab];
+    if (faqCategoryID === "ALL") {
+      const allItems = Object.values(tabItems).flatMap((item) => item);
+      return HttpResponse.json(allItems);
+    } else {
+      const filteredItems = tabItems[faqCategoryID as keyof typeof tabItems];
+      return HttpResponse.json(filteredItems);
+    }
   }),
 ];

@@ -3,8 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header/Header";
 import { Footer } from "@/components/Footer/Footer";
-import { MswComponent } from "@/components/MswComponent";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import MswComponent from "@/components/MswComponent";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -16,10 +15,8 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const queryClient = new QueryClient();
-
 if (process.env.NEXT_PUBLIC_API_MOCKING === "enabled") {
-  import("../../mocks/initMocks").then((mod) => mod.initMocks());
+  import("../../mocks/initMocks").then(({ initMocks }) => initMocks());
 }
 
 export const metadata: Metadata = {
@@ -34,14 +31,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      {/* <Header /> */}
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <QueryClientProvider client={queryClient}>
-          <MswComponent />
-          {children}
-        </QueryClientProvider>
+        <Header />
+        <MswComponent>{children}</MswComponent>
+        <Footer />
       </body>
-      <Footer />
     </html>
   );
 }

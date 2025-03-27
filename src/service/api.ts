@@ -1,12 +1,12 @@
-// src/service/api.ts
-export async function fetchQnaList(tab?: string, search?: string) {
-  const url = new URL("/api/qna", "http://localhost:3000");
+export async function fetchFaqList(tab?: string, selectedCategory?: string) {
+  const url = new URL("/api/faq", "http://localhost:3000");
   if (tab) url.searchParams.append("tab", tab);
-  if (search) url.searchParams.append("search", search);
+  if (selectedCategory)
+    url.searchParams.append("faqCategoryID", selectedCategory);
 
-  const response = await fetch(url.toString());
+  const response = await fetch(url);
   if (!response.ok) {
-    throw new Error("Failed to fetch QnA list");
+    throw new Error("Failed to fetch faq list");
   }
   return response.json();
 }

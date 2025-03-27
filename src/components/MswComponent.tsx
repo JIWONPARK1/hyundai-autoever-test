@@ -1,16 +1,24 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { initMocks } from "../../mocks/initMocks";
 
-export const MswComponent = () => {
+export default function MswComponent({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const [mswReady, setMswReady] = useState(false);
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      (async () => {
-        const { worker } = await import("../../mocks/browser");
-        worker.start({ onUnhandledRequest: "bypass" });
-      })();
-    }
-  }, []);
+    const init = async () => {
+      await initMocks();
+      setMswReady(true);
+    };
 
-  return null;
-};
+    if (!mswReady) {
+      init();
+    }
+  }, [mswReady]);
+
+  return <>{children}</>;
+}
