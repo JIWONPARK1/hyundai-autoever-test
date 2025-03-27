@@ -8,6 +8,11 @@ export const footerCss = {
     color: var(--gray-400);
     padding: 0 var(--side-padding);
     position: relative;
+    @media (max-width: 743px) {
+      --font-md: 12px;
+      --font-lg: 14px;
+      --line-height: 22px;
+    }
   `,
   inner: css`
     display: flex;
@@ -20,6 +25,14 @@ export const footerCss = {
     max-width: var(--max-width);
     align-items: center;
     flex-direction: row-reverse;
+    @media (max-width: 743px) {
+      flex-direction: column;
+      padding-bottom: 29px;
+      padding-top: 18px;
+      > div {
+        width: 100%;
+      }
+    }
   `,
   util: css`
     justify-content: flex-end;
@@ -31,6 +44,15 @@ export const footerCss = {
       line-height: var(--line-height);
       margin-left: 24px;
     }
+    @media (max-width: 743px) {
+      justify-content: flex-start;
+      button {
+        margin: 0;
+        line-height: 48px;
+        line-height: 48px;
+        margin-right: 16px;
+      }
+    }
   `,
   address: css`
     text-align: right;
@@ -39,6 +61,15 @@ export const footerCss = {
       margin-left: 12px;
       i {
         margin-left: 4px;
+      }
+    }
+    @media (max-width: 743px) {
+      width: 100%;
+      margin-right: 12px;
+      margin-left: 0;
+      text-align: left;
+      span {
+        display: block;
       }
     }
   `,
@@ -52,6 +83,13 @@ export const footerCss = {
       display: block;
       height: 56px;
       margin-bottom: 2px;
+    }
+    @media (max-width: 743px) {
+      text-align: left;
+      &:before {
+        height: 32px;
+        margin-bottom: 1px;
+      }
     }
   `,
 };

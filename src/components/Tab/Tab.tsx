@@ -1,16 +1,16 @@
 "use client";
 
 import { tabCss } from "./Tab.styles";
-import { TabItem } from "@/types/qna.type";
+import { TabItem, Tab as TabType } from "@/types/faq.type";
 
 export const Tab = ({
   tabs,
   selectedTab,
-  setSelectedTab,
+  onChangeTab,
 }: {
   tabs: TabItem[];
-  selectedTab: string;
-  setSelectedTab: (id: string) => void;
+  selectedTab: TabType;
+  onChangeTab: (id: TabType) => void;
 }) => {
   return (
     <ul css={tabCss.container}>
@@ -19,7 +19,7 @@ export const Tab = ({
           key={tab.id}
           css={[tabCss.item, selectedTab === tab.id && tabCss.selected]}
         >
-          <button css={tabCss.button} onClick={() => setSelectedTab(tab.id)}>
+          <button css={tabCss.button} onClick={() => onChangeTab(tab.id)}>
             <span>{tab.title}</span>
           </button>
         </li>

@@ -44,6 +44,17 @@ export const processInfoCss = {
         width: 24px;
       }
     }
+    @media (max-width: 1023px) {
+      flex-direction: column;
+      gap: 24px 0;
+      li {
+        display: flex;
+        padding: 0 !important;
+        i {
+          margin: 0 16px 0 0;
+        }
+      }
+    }
   `,
   iconProcess1: css`
     background-image: url(/ic_process01.svg);

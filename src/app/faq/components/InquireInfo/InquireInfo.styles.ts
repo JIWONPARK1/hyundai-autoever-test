@@ -12,6 +12,23 @@ export const inquireInfoCss = {
       font-weight: 600;
       font-size: var(--btn-xxlg-size);
     }
+    @media (max-width: 1023px) {
+      flex-wrap: wrap;
+      li:last-child {
+        margin-top: var(--space-md);
+        min-width: calc(100% - var(--space-md));
+      }
+    }
+    @media (max-width: 743px) {
+      flex-direction: column;
+      gap: 12px;
+      li a {
+        justify-content: flex-start;
+      }
+      li:last-child {
+        margin-top: 0;
+      }
+    }
   `,
   button: css`
     align-items: center;
@@ -32,6 +49,7 @@ export const inquireInfoCss = {
       height: var(--ic-lg);
       margin-right: 8px;
       width: var(--ic-lg);
+      background-size: auto 100%;
     }
   `,
   icDownload: css`

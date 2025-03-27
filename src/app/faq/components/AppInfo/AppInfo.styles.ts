@@ -20,6 +20,10 @@ export const appInfoCss = {
     em {
       color: var(--mint-900);
     }
+    @media (max-width: 743px) {
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
   `,
   button: css`
     align-items: center;
@@ -39,6 +43,13 @@ export const appInfoCss = {
       height: 28px;
       margin-right: 4px;
       width: 28px;
+    }
+    @media (max-width: 743px) {
+      font-size: 14px;
+      height: 48px;
+      margin: 12px 0 0;
+      max-width: 264px;
+      width: 100%;
     }
   `,
   icGoogle: css`

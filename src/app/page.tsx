@@ -1,5 +1,5 @@
-import Qna from "./qna/page";
+import Faq from "./faq/page";
 
 export default function Home() {
-  return <Qna />;
+  return <Faq />;
 }

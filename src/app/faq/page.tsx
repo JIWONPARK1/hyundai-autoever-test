@@ -1,37 +1,37 @@
-// src/app/qna/QnaClient.tsx
+// src/app/faq/FaqClient.tsx
 "use client";
 
 import { Tab } from "@/components/Tab/Tab";
 import { Input } from "@/components/Input/Input";
 import { Category } from "@/components/Category/Category";
-import { qnaCss } from "../qna.styles";
-import { QnqList } from "./QnqList/QnqList";
-import { InquireInfo } from "./InquireInfo/InquireInfo";
-import { ProcessInfo } from "./ProcessInfo/ProcessInfo";
-import { AppInfo } from "./AppInfo/AppInfo";
-import { useQna } from "../useQna";
-import { config } from "../config";
+import { faqCss } from "./faq.styles";
+import { FaqList } from "./components/FaqList/FaqList";
+import { InquireInfo } from "./components/InquireInfo/InquireInfo";
+import { ProcessInfo } from "./components/ProcessInfo/ProcessInfo";
+import { AppInfo } from "./components/AppInfo/AppInfo";
+import { useFaq } from "./useFaq";
+import { config } from "./config";
 
-export default function QnaClient() {
+export default function Faq() {
   const {
     value,
     onChange,
     selectedTab,
-    setSelectedTab,
+    onChangeTab,
     selectedCategory,
     setSelectedCategory,
-    data,
-  } = useQna();
+    list,
+  } = useFaq();
 
   return (
-    <div css={qnaCss.container}>
-      <h2 css={qnaCss.title}>
+    <div css={faqCss.container}>
+      <h2 css={faqCss.title}>
         자주 묻는 질문<em>궁금하신 내용을 빠르게 찾아보세요.</em>
       </h2>
       <Tab
         tabs={config.tabs}
         selectedTab={selectedTab}
-        setSelectedTab={setSelectedTab}
+        onChangeTab={onChangeTab}
       />
       <form>
         <Input
@@ -45,10 +45,10 @@ export default function QnaClient() {
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}
       />
-      <QnqList category={selectedCategory.name} list={data?.items} />
-      <h3 css={qnaCss.subTitle}>서비스 문의</h3>
+      <FaqList category={selectedCategory.name} list={list} />
+      <h3 css={faqCss.subTitle}>서비스 문의</h3>
       <InquireInfo />
-      <h3 css={qnaCss.subTitle}>이용 프로세스 안내</h3>
+      <h3 css={faqCss.subTitle}>이용 프로세스 안내</h3>
       <ProcessInfo />
       <AppInfo />
     </div>

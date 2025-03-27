@@ -9,6 +9,9 @@ export const inputCss = {
     margin-bottom: var(--px-md);
     padding: var(--px-md);
     justify-content: center;
+    @media (max-width: 743px) {
+      padding: 0;
+    }
   `,
   inputWrap: css`
     width: var(--search-bar-width);
@@ -16,6 +19,7 @@ export const inputCss = {
   `,
   input: css`
     width: 100%;
+    border: 1px solid var(--gray-200);
     border-color: var(--midnight-900);
     font-size: 1rem;
     height: var(--btn-xlg2);

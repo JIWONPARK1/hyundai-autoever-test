@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
 
-export const qnaCss = {
+export const faqCss = {
   container: css`
     margin: 0 auto;
     max-width: 1240px;
