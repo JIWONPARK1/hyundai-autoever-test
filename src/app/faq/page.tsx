@@ -45,7 +45,7 @@ export default function Faq() {
         selectedCategory={selectedCategory}
         setSelectedCategory={setSelectedCategory}
       />
-      <FaqList category={selectedCategory.name} list={list} />
+      <FaqList list={list} />
       <h3 css={faqCss.subTitle}>서비스 문의</h3>
       <InquireInfo />
       <h3 css={faqCss.subTitle}>이용 프로세스 안내</h3>

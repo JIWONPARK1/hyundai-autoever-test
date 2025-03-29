@@ -1,3 +1,19 @@
+@charset "UTF-8";
+/* Font */
+
+@font-face {
+  font-display: swap;
+  font-family: Kia Signature Fix;
+  src: url(/fonts/KiaSignatureFixRegular.woff2) format("woff2");
+  font-weight: 400;
+}
+@font-face {
+  font-display: swap;
+  font-family: Kia Signature Fix;
+  src: url(/fonts/KiaSignatureFixBold.woff2) format("woff2");
+  font-weight: 600;
+}
+
 * {
   box-sizing: border-box;
   -webkit-tap-highlight-color: rgba(112, 215, 191, 0.08);
@@ -387,7 +403,7 @@ iframe {
   content: "";
   width: var(--ic-sm);
   height: var(--ic-sm);
-  background: url(/ic_clear.svg) no-repeat;
+  background: url(/images/ic_clear.svg) no-repeat;
   background-size: auto 100%;
 }
 .input-wrap input:placeholder-shown + .clear {

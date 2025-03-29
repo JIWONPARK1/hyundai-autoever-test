@@ -23,7 +23,7 @@ export const headerCss = {
     background-repeat: no-repeat;
     background-size: 100% auto;
     font-size: 0;
-    background-image: url(/logo_wible_lg.svg);
+    background-image: url(/images/logo_wible_lg.svg);
     height: 100%;
     width: 160px;
     @media (max-width: 1023px) {

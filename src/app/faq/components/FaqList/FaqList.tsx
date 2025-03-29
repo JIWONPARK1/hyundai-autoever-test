@@ -3,14 +3,10 @@
 import { FaqItem } from "@/types/faq.type";
 import { faqListCss } from "./FaqList.styles";
 import { useState } from "react";
-export const FaqList = ({
-  category,
-  list,
-}: {
-  category: string;
-  list: FaqItem[];
-}) => {
+export const FaqList = ({ list }: { list: FaqItem[] }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  console.log(list);
 
   return (
     <ul css={faqListCss.container}>
@@ -27,7 +23,7 @@ export const FaqList = ({
                 setOpenIndex(openIndex === item.id ? null : item.id)
               }
             >
-              <em css={faqListCss.category}>{category}</em>
+              <em css={faqListCss.category}>{item.subCategoryName}</em>
               <strong css={faqListCss.question}>{item.question}</strong>
             </button>
           </div>

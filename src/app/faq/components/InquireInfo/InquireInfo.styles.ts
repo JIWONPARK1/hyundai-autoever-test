@@ -53,12 +53,12 @@ export const inquireInfoCss = {
     }
   `,
   icDownload: css`
-    background-image: url("/ic_download.svg");
+    background-image: url("/images/ic_download.svg");
   `,
   icWrite: css`
-    background-image: url("/ic_write.svg");
+    background-image: url("/images/ic_write.svg");
   `,
   icTalk: css`
-    background-image: url("/ic_talk.svg");
+    background-image: url("/images/ic_talk.svg");
   `,
 };

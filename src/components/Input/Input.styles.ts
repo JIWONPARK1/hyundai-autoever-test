@@ -57,7 +57,7 @@ export const inputCss = {
     top: 1px;
     width: calc(var(--btn-xlg2) - 2px);
     &:before {
-      background: url(/ic_search.svg) no-repeat;
+      background: url(/images/ic_search.svg) no-repeat;
       background-size: auto 100%;
       content: "";
       height: var(--ic-md);
@@ -66,7 +66,7 @@ export const inputCss = {
   `,
   inputFocus: css`
     &:before {
-      background: url(/ic_clear.svg) no-repeat;
+      background: url(/images/ic_clear.svg) no-repeat;
       background-size: auto 100%;
       content: "";
       height: var(--ic-sm);

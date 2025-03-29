@@ -18,6 +18,10 @@ export const categoryCss = {
     padding: 0 var(--space-sm);
     font-size: 18px;
     height: var(--btn-md);
+    margin-right: 2px;
+    @media (max-width: 1023px) {
+      font-size: 16px;
+    }
   `,
   selected: css`
     background-color: var(--mint-900);

@@ -24,7 +24,7 @@ export const faqListCss = {
       transition: transform 0.4s var(--cubic-bezier-primary),
         -webkit-transform 0.4s var(--cubic-bezier-primary);
       width: var(--ic-md);
-      background: url(/ic_qna_arrow.svg) no-repeat;
+      background: url(/images/ic_qna_arrow.svg) no-repeat;
       background-size: auto 100%;
       content: "";
       height: var(--ic-md);

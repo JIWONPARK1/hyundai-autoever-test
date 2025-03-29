@@ -20,6 +20,10 @@ export const appInfoCss = {
     em {
       color: var(--mint-900);
     }
+    @media (max-width: 1023px) {
+      font-size: 20px;
+      margin-bottom: 24px;
+    }
     @media (max-width: 743px) {
       font-size: 16px;
       margin-bottom: 4px;
@@ -44,6 +48,11 @@ export const appInfoCss = {
       margin-right: 4px;
       width: 28px;
     }
+    @media (max-width: 1023px) {
+      font-size: 14px;
+      height: 56px;
+      width: 264px;
+    }
     @media (max-width: 743px) {
       font-size: 14px;
       height: 48px;
@@ -53,9 +62,9 @@ export const appInfoCss = {
     }
   `,
   icGoogle: css`
-    background-image: url(/logo_googleplay.svg);
+    background-image: url(/images/logo_googleplay.svg);
   `,
   icApple: css`
-    background-image: url(/logo_appstore.svg);
+    background-image: url(/images/logo_appstore.svg);
   `,
 };

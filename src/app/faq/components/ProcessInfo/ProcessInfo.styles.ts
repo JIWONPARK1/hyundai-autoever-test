@@ -16,6 +16,7 @@ export const processInfoCss = {
         height: var(--ic-xlg);
         margin-bottom: 8px;
         width: var(--ic-xlg);
+        background-size: auto 100%;
       }
       span {
         display: block;
@@ -34,7 +35,7 @@ export const processInfoCss = {
         margin-top: 8px;
       }
       &:not(:first-child):before {
-        background: url(/ic_step_arrow.svg) no-repeat;
+        background: url(/images/ic_step_arrow.svg) no-repeat;
         background-size: auto 100%;
         content: "";
         height: 24px;
@@ -57,15 +58,15 @@ export const processInfoCss = {
     }
   `,
   iconProcess1: css`
-    background-image: url(/ic_process01.svg);
+    background-image: url(/images/ic_process01.svg);
   `,
   iconProcess2: css`
-    background-image: url(/ic_process02.svg);
+    background-image: url(/images/ic_process02.svg);
   `,
   iconProcess3: css`
-    background-image: url(/ic_process03.svg);
+    background-image: url(/images/ic_process03.svg);
   `,
   iconProcess4: css`
-    background-image: url(/ic_process04.svg);
+    background-image: url(/images/ic_process04.svg);
   `,
 };

@@ -3,7 +3,7 @@ import { css } from "@emotion/react";
 export const faqCss = {
   container: css`
     margin: 0 auto;
-    max-width: 1240px;
+    max-width: 1336px;
     min-height: calc(100vh - var(--header-height) - var(--footer-height));
     overflow: hidden;
     padding: 0 var(--side-padding) var(--bottom-padding);

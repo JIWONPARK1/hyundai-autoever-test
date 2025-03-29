@@ -8,6 +8,11 @@ export const footerCss = {
     color: var(--gray-400);
     padding: 0 var(--side-padding);
     position: relative;
+
+    --font-md: 14px;
+    --font-lg: 16px;
+    --line-height: 24px;
+
     @media (max-width: 743px) {
       --font-md: 12px;
       --font-lg: 14px;
@@ -25,6 +30,15 @@ export const footerCss = {
     max-width: var(--max-width);
     align-items: center;
     flex-direction: row-reverse;
+    font-size: var(--font-md);
+
+    @media (max-width: 1023px) {
+      flex-direction: column;
+      padding-bottom: 44px;
+      padding-top: 34px;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
     @media (max-width: 743px) {
       flex-direction: column;
       padding-bottom: 29px;
@@ -44,6 +58,14 @@ export const footerCss = {
       line-height: var(--line-height);
       margin-left: 24px;
     }
+    @media (max-width: 1023px) {
+      justify-content: flex-start;
+      button {
+        margin-left: 0;
+        line-height: 52px;
+        margin-right: 24px;
+      }
+    }
     @media (max-width: 743px) {
       justify-content: flex-start;
       button {
@@ -59,8 +81,20 @@ export const footerCss = {
     span {
       display: inline-flex;
       margin-left: 12px;
-      i {
+      em,
+      a {
+        color: var(--gray-400);
         margin-left: 4px;
+      }
+      a {
+        text-decoration: underline;
+      }
+    }
+    @media (max-width: 1023px) {
+      text-align: left;
+      span {
+        margin-left: 0;
+        margin-right: 12px;
       }
     }
     @media (max-width: 743px) {
@@ -74,9 +108,8 @@ export const footerCss = {
     }
   `,
   copyright: css`
-    text-decoration: underline;
     &:before {
-      background-image: url(/logo_kia.svg);
+      background-image: url(/images/logo_kia.svg);
       background-repeat: no-repeat;
       background-size: auto 100%;
       content: "";
@@ -84,7 +117,13 @@ export const footerCss = {
       height: 56px;
       margin-bottom: 2px;
     }
+    @media (max-width: 1023px) {
+      &:before {
+        height: 48px;
+      }
+    }
     @media (max-width: 743px) {
+      text-decoration: underline;
       text-align: left;
       &:before {
         height: 32px;

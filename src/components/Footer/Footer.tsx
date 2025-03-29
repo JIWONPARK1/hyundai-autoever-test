@@ -7,31 +7,34 @@ export const Footer = () => {
     <footer css={footerCss.footer}>
       <div css={footerCss.inner}>
         <div>
-          <span css={footerCss.util}>
+          <div css={footerCss.util}>
             <button type="button">
               <b>개인정보 처리방침</b>
             </button>
             <button type="button">이용약관</button>
-          </span>
+          </div>
           <address css={footerCss.address}>
             <span>
               서울특별시 서초구 헌릉로 12 <em>기아㈜</em>
             </span>
 
             <span>
-              대표: <i>송호성, 최준영</i>
+              대표: <em>송호성, 최준영</em>
             </span>
 
             <span>
-              사업자등록번호: <i>119-81-02316</i>
+              사업자등록번호: <em>119-81-02316</em>
             </span>
 
             <span>
-              통신판매번호: <i>2006-07935</i>
+              통신판매번호: <em>2006-07935</em>
             </span>
 
             <span>
-              고객센터: <i>1833-4964</i>
+              고객센터: <em>1833-4964</em>
+            </span>
+            <span>
+              제휴문의: <a href="mailto:wible.biz@kia.com">wible.biz@kia.com</a>
             </span>
           </address>
         </div>
