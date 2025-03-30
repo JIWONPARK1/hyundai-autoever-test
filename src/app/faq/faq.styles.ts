@@ -30,4 +30,43 @@ export const faqCss = {
     margin: var(--heading-2-margin);
     line-height: var(--line-height-sm);
   `,
+  loadMoreButton: css`
+    align-items: center;
+    display: flex;
+    font-size: var(--list-more-size);
+    height: var(--btn-xlg2);
+    justify-content: center;
+    margin-top: calc(var(--px-lg) - 8px);
+    width: 100%;
+    i {
+      height: calc(var(--list-more-size) - 4px);
+      margin-right: 4px;
+      margin-top: -2px;
+      position: relative;
+      transition: -webkit-transform 0.4s cubic-bezier(1, 0, 0.2, 1);
+      transition: transform 0.4s cubic-bezier(1, 0, 0.2, 1);
+      transition: transform 0.4s cubic-bezier(1, 0, 0.2, 1),
+        -webkit-transform 0.4s cubic-bezier(1, 0, 0.2, 1);
+      transition: -webkit-transform 0.4s var(--cubic-bezier-primary);
+      transition: transform 0.4s var(--cubic-bezier-primary);
+      transition: transform 0.4s var(--cubic-bezier-primary),
+        -webkit-transform 0.4s var(--cubic-bezier-primary);
+      width: calc(var(--list-more-size) - 4px);
+      &:before,
+      &:after {
+        background-color: #05141f;
+        background-color: var(--midnight-900);
+        content: "";
+        height: 2px;
+        left: 0;
+        position: absolute;
+        top: calc(50% - 1px);
+        width: 100%;
+      }
+      &:after {
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+      }
+    }
+  `,
 };

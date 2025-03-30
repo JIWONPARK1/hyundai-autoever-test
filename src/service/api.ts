@@ -1,6 +1,18 @@
-export async function fetchFaqList(tab?: string, selectedCategory?: string) {
+export async function fetchFaqList({
+  limit,
+  offset,
+  tab,
+  selectedCategory,
+}: {
+  offset: number;
+  limit: number;
+  tab: string;
+  selectedCategory?: string;
+}) {
   const url = new URL("/api/faq", "http://localhost:3000");
-  if (tab) url.searchParams.append("tab", tab);
+  url.searchParams.append("offset", offset.toString());
+  url.searchParams.append("limit", limit.toString());
+  url.searchParams.append("tab", tab);
   if (selectedCategory)
     url.searchParams.append("faqCategoryID", selectedCategory);
 

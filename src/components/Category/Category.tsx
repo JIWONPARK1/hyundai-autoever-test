@@ -5,11 +5,11 @@ import { CategoryItem } from "@/types/faq.type";
 export const Category = ({
   categorys,
   selectedCategory,
-  setSelectedCategory,
+  onChangeCategory,
 }: {
   categorys: CategoryItem[];
   selectedCategory: CategoryItem;
-  setSelectedCategory: (category: CategoryItem) => void;
+  onChangeCategory: (category: CategoryItem) => void;
 }) => {
   return (
     <div css={categoryCss.container}>
@@ -21,7 +21,7 @@ export const Category = ({
             selectedCategory.categoryID === category.categoryID &&
               categoryCss.selected,
           ]}
-          onClick={() => setSelectedCategory(category)}
+          onClick={() => onChangeCategory(category)}
         >
           {category.name}
         </button>

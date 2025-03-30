@@ -6,8 +6,6 @@ import { useState } from "react";
 export const FaqList = ({ list }: { list: FaqItem[] }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  console.log(list);
-
   return (
     <ul css={faqListCss.container}>
       {list.map((item: FaqItem) => (

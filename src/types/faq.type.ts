@@ -51,3 +51,11 @@ export type FaqItem = {
   question: string;
   answer: string;
 };
+
+export type PageInfo = {
+  totalRecord: number;
+  offset: number;
+  limit: number;
+  prevOffset: number;
+  nextOffset: number;
+};

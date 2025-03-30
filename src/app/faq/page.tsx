@@ -19,9 +19,13 @@ export default function Faq() {
     selectedTab,
     onChangeTab,
     selectedCategory,
-    setSelectedCategory,
+    onChangeCategory,
     list,
+    hassMore,
+    loadMore,
   } = useFaq();
+
+  console.log(list);
 
   return (
     <div css={faqCss.container}>
@@ -43,9 +47,14 @@ export default function Faq() {
       <Category
         categorys={config.categorys[selectedTab]}
         selectedCategory={selectedCategory}
-        setSelectedCategory={setSelectedCategory}
+        onChangeCategory={onChangeCategory}
       />
       <FaqList list={list} />
+      {hassMore && (
+        <button css={faqCss.loadMoreButton} type="button" onClick={loadMore}>
+          <i></i>더보기
+        </button>
+      )}
       <h3 css={faqCss.subTitle}>서비스 문의</h3>
       <InquireInfo />
       <h3 css={faqCss.subTitle}>이용 프로세스 안내</h3>
