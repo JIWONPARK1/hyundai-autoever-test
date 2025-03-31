@@ -16,25 +16,23 @@ Next.js 15와 MSW를 활용한 FAQ 페이지(https://wiblebiz.kia.com/FAQ) 클�
 - **Language**: TypeScript
 - **Styling**: Emotion
 - **API Mocking**: MSW 2.7.3
-- **Font**: Geist, Geist Mono
+- **Font**: Kia Signature Fix
 
 ## 프로젝트 구조
 
-```
+````
 src/
-├── app/                    # Next.js App Router
-│   ├── faq/               # FAQ 관련 페이지
-│   └── qna/               # QnA 관련 페이지
-├── components/            # 재사용 가능한 컴포넌트
-│   ├── Category/         # 카테고리 선택 컴포넌트
+├── app/                 # Next.js App Router
+│   ├── faq/             # FAQ 관련 페이지
+├── components/          # 재사용 가능한 컴포넌트
+│   ├── Category/        # 카테고리 선택 컴포넌트
 │   ├── Header/          # 헤더 컴포넌트
 │   ├── Footer/          # 푸터 컴포넌트
 │   ├── SearchInput/     # 검색 입력 컴포넌트
 │   └── TopButton/       # 상단 이동 버튼 컴포넌트
-├── hooks/                # 커스텀 훅
+├── hooks/               # 커스텀 훅
 ├── mocks/               # MSW 모킹 설정
 └── types/               # TypeScript 타입 정의
-```
 
 ## 시작하기
 
@@ -42,7 +40,7 @@ src/
 
 ```bash
 npm install
-```
+````
 
 2. 개발 서버 실행
 
@@ -63,7 +61,7 @@ NEXT_PUBLIC_API_MOCKING=enabled
 
 ## API 모킹
 
-MSW를 사용하여 API를 모킹하고 있습니다. 실제 API 연동 시에는 `src/service/api.ts`의 API 호출 부분을 수정하면 됩니다.
+MSW를 사용하여 API를 모킹하고 있습니다.
 
 ## 라이선스
 
