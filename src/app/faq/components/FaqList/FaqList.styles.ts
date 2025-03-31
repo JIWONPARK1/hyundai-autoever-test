@@ -47,6 +47,7 @@ export const faqListCss = {
     color: var(--gray-500);
     padding: 0 var(--faq-list-a-padding-h);
     width: 8em;
+    text-align: center;
     @media (max-width: 1023px) {
       align-items: center;
       display: flex;

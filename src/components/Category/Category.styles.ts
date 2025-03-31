@@ -22,9 +22,12 @@ export const categoryCss = {
     @media (max-width: 1023px) {
       font-size: 16px;
     }
+    @media (max-width: 767px) {
+      font-size: 14px;
+    }
   `,
   selected: css`
-    background-color: var(--mint-900);
+    background-color: var(--midnight-900);
     color: #fff;
   `,
 };

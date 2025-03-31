@@ -68,6 +68,7 @@ export const footerCss = {
     }
     @media (max-width: 743px) {
       justify-content: flex-start;
+      margin-bottom: 0;
       button {
         margin: 0;
         line-height: 48px;
@@ -104,6 +105,10 @@ export const footerCss = {
       text-align: left;
       span {
         display: block;
+        &:last-of-type,
+        &:nth-of-type(5) {
+          display: inline-block;
+        }
       }
     }
   `,

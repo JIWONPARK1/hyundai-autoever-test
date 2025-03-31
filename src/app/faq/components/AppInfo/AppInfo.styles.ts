@@ -10,6 +10,9 @@ export const appInfoCss = {
     margin-top: 48px;
     overflow: hidden;
     padding: 32px;
+    @media (max-width: 767px) {
+      padding: 24px;
+    }
   `,
   title: css`
     font-size: 24px;
@@ -59,6 +62,10 @@ export const appInfoCss = {
       margin: 12px 0 0;
       max-width: 264px;
       width: 100%;
+      i {
+        height: 24px;
+        width: 24px;
+      }
     }
   `,
   icGoogle: css`

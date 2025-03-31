@@ -6,14 +6,14 @@ export const InquireInfo = memo(() => {
   return (
     <ul css={inquireInfoCss.list}>
       <li>
-        <Link
+        <a
           css={inquireInfoCss.button}
-          href="/static/media/proposal.604393960f70e45463b6.pdf"
-          download="위블비즈 상품제안서"
+          href="/media/proposal.604393960f70e45463b6.pdf"
+          download="기아 비즈 서비스 제안서"
         >
           <i css={inquireInfoCss.icDownload}></i>
-          <span>상품제안서 다운로드</span>
-        </Link>
+          <span>서비스 제안서 다운로드</span>
+        </a>
       </li>
       <li>
         <Link css={inquireInfoCss.button} href="/Counsel">
@@ -30,7 +30,7 @@ export const InquireInfo = memo(() => {
         >
           <i css={inquireInfoCss.icTalk}></i>
           <span>
-            카톡으로 문의하기 <em>ID: Wible Biz(위블 비즈)</em>
+            카톡으로 문의하기 <em>ID: 기아 비즈</em>
           </span>
         </Link>
       </li>

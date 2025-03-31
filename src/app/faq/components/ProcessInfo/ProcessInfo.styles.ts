@@ -17,6 +17,7 @@ export const processInfoCss = {
         margin-bottom: 8px;
         width: var(--ic-xlg);
         background-size: auto 100%;
+        flex: none;
       }
       span {
         display: block;
@@ -34,7 +35,7 @@ export const processInfoCss = {
         font-size: 16px;
         margin-top: 8px;
       }
-      &:not(:first-child):before {
+      &:not(:first-of-type) span:before {
         background: url(/images/ic_step_arrow.svg) no-repeat;
         background-size: auto 100%;
         content: "";
@@ -51,10 +52,20 @@ export const processInfoCss = {
       li {
         display: flex;
         padding: 0 !important;
+        strong {
+          font-size: 16px;
+        }
+        em {
+          font-size: 14px;
+          margin-top: 4px;
+        }
         i {
           margin: 0 16px 0 0;
         }
       }
+    }
+    @media (max-width: 767px) {
+      gap: 20px;
     }
   `,
   iconProcess1: css`

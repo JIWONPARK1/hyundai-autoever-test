@@ -22,14 +22,14 @@ export const ProcessInfo = memo(() => {
         <i css={processInfoCss.iconProcess3}></i>
         <span>
           <strong>3. 임직원 가입</strong>
-          <em>사용자 App에서 회원가입 후 소속 회사 인증을 진행합니다.</em>
+          <em>이용자 App에서 회원가입 후 소속 회사 인증을 진행합니다.</em>
         </span>
       </li>
       <li>
         <i css={processInfoCss.iconProcess4}></i>
         <span>
           <strong>4. 서비스 이용</strong>
-          <em>사용자 App에서 차량 예약을 하고 위블존에서 바로 이용하세요!</em>
+          <em>이용자 App에서 차량 예약을 하고 K존에서 바로 이용하세요!</em>
         </span>
       </li>
     </ol>

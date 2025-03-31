@@ -3,12 +3,14 @@
 import Link from "next/link";
 import { headerCss } from "./Header.styles";
 import { useState } from "react";
+import useScroll from "@/hook/useScroll";
 
 export const Header = () => {
   const [isOpenGnb, setIsOpenGnb] = useState(false);
+  const isActive = useScroll();
 
   return (
-    <header css={headerCss.header}>
+    <header css={[headerCss.header, isActive && headerCss.sticky]}>
       <div css={headerCss.container}>
         <Link css={headerCss.logo} href="/">
           Wible BIZ

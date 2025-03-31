@@ -9,7 +9,6 @@ export const faqCss = {
     padding: 0 var(--side-padding) var(--bottom-padding);
   `,
   title: css`
-    align-items: center;
     display: flex;
     flex-direction: column;
     font-size: var(--h1-fsize);
@@ -21,7 +20,6 @@ export const faqCss = {
       font-weight: 400;
       line-height: var(--line-height-md);
       margin-top: 0.4em;
-      text-align: center;
       word-break: keep-all;
     }
   `,

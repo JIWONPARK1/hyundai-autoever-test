@@ -25,11 +25,14 @@ export const headerCss = {
     font-size: 0;
     background-image: url(/images/logo_wible_lg.svg);
     height: 100%;
-    width: 160px;
+    width: 140px;
     @media (max-width: 1023px) {
-      height: 40px;
-      width: 120px;
+      height: 100%;
+      width: 110px;
     }
+  `,
+  sticky: css`
+    box-shadow: 0 4px 32px 0 rgba(0, 0, 0, 0.08);
   `,
   nav: css`
     flex: 1 1;

@@ -5,9 +5,7 @@ import { memo } from "react";
 export const AppInfo = memo(() => {
   return (
     <div css={appInfoCss.container}>
-      <h2 css={appInfoCss.title}>
-        <em>위블 비즈 App</em> 지금 만나보세요!
-      </h2>
+      <h2 css={appInfoCss.title}>기아 비즈 App 지금 만나보세요!</h2>
       <Link
         href="https://play.google.com/store/apps/details?id=kor.mop.user.app"
         target="_blank"
