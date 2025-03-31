@@ -3,6 +3,7 @@
 import { FaqItem } from "@/types/faq.type";
 import { faqListCss } from "./FaqList.styles";
 import { useState } from "react";
+
 export const FaqList = ({ list }: { list: FaqItem[] }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
@@ -11,8 +12,7 @@ export const FaqList = ({ list }: { list: FaqItem[] }) => {
       {list.map((item: FaqItem) => (
         <li key={item.id}>
           <div css={faqListCss.header}>
-            <button
-              type="button"
+            <p
               css={[
                 faqListCss.button,
                 openIndex === item.id && faqListCss.open,
@@ -23,7 +23,7 @@ export const FaqList = ({ list }: { list: FaqItem[] }) => {
             >
               <em css={faqListCss.category}>{item.subCategoryName}</em>
               <strong css={faqListCss.question}>{item.question}</strong>
-            </button>
+            </p>
           </div>
           <div
             css={[

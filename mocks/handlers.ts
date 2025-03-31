@@ -12,6 +12,7 @@ export const handlers = [
     const faqCategoryID: Category = url.searchParams.get(
       "faqCategoryID"
     ) as Category;
+    const query: string = url.searchParams.get("query") || "";
 
     let items: FaqItem[] = [];
     const tabItems = faqData[tab];
@@ -29,7 +30,10 @@ export const handlers = [
       items = tabItems[faqCategoryID as keyof typeof tabItems];
     }
 
-    console.log("offset, limit, items============", offset, limit, items);
+    if (query) {
+      items = items.filter((item) => item.question.includes(query));
+    }
+
     return HttpResponse.json({
       items: items.slice(offset, offset + limit),
       pageInfo: {

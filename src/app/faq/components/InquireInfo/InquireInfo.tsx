@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { inquireInfoCss } from "./InquireInfo.styles";
+import { memo } from "react";
 
-export const InquireInfo = () => {
+export const InquireInfo = memo(() => {
   return (
     <ul css={inquireInfoCss.list}>
       <li>
@@ -35,4 +36,6 @@ export const InquireInfo = () => {
       </li>
     </ul>
   );
-};
+});
+
+InquireInfo.displayName = "InquireInfo";

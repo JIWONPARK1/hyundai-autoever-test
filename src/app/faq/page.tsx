@@ -2,7 +2,7 @@
 "use client";
 
 import { Tab } from "@/components/Tab/Tab";
-import { Input } from "@/components/Input/Input";
+import { SearchInput } from "@/components/SearchInput/SearchInput";
 import { Category } from "@/components/Category/Category";
 import { faqCss } from "./faq.styles";
 import { FaqList } from "./components/FaqList/FaqList";
@@ -14,8 +14,6 @@ import { config } from "./config";
 
 export default function Faq() {
   const {
-    value,
-    onChange,
     selectedTab,
     onChangeTab,
     selectedCategory,
@@ -23,9 +21,10 @@ export default function Faq() {
     list,
     hassMore,
     loadMore,
+    searchQuery,
+    onChangeSearchQuery,
+    onSubmit,
   } = useFaq();
-
-  console.log(list);
 
   return (
     <div css={faqCss.container}>
@@ -37,13 +36,11 @@ export default function Faq() {
         selectedTab={selectedTab}
         onChangeTab={onChangeTab}
       />
-      <form>
-        <Input
-          placeholder="찾으시는 내용을 입력해 주세요"
-          value={value}
-          onChange={onChange}
-        />
-      </form>
+      <SearchInput
+        value={searchQuery}
+        onChange={onChangeSearchQuery}
+        onSubmit={onSubmit}
+      />
       <Category
         categorys={config.categorys[selectedTab]}
         selectedCategory={selectedCategory}

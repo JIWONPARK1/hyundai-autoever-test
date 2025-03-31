@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { appInfoCss } from "./AppInfo.styles";
+import { memo } from "react";
 
-export const AppInfo = () => {
+export const AppInfo = memo(() => {
   return (
     <div css={appInfoCss.container}>
       <h2 css={appInfoCss.title}>
@@ -27,4 +28,6 @@ export const AppInfo = () => {
       </Link>
     </div>
   );
-};
+});
+
+AppInfo.displayName = "AppInfo";

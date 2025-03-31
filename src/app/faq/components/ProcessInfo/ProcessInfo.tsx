@@ -1,6 +1,7 @@
 import { processInfoCss } from "./ProcessInfo.styles";
+import { memo } from "react";
 
-export const ProcessInfo = () => {
+export const ProcessInfo = memo(() => {
   return (
     <ol css={processInfoCss.list}>
       <li>
@@ -33,4 +34,6 @@ export const ProcessInfo = () => {
       </li>
     </ol>
   );
-};
+});
+
+ProcessInfo.displayName = "ProcessInfo";

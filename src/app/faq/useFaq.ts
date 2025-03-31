@@ -1,6 +1,5 @@
 // src/hooks/useFaq.ts
 import { useEffect, useState, useCallback } from "react";
-import { useInput } from "@/hooks/useInput";
 import { fetchFaqList } from "@/service/api";
 import { config } from "./config";
 import { Tab, PageInfo, FaqItem, CategoryItem } from "@/types/faq.type";
@@ -13,52 +12,99 @@ const initialPageInfo: PageInfo = {
   nextOffset: 0,
 };
 
+const initialCategory: CategoryItem = {
+  categoryID: "ALL",
+  name: "전체",
+};
+
 export function useFaq() {
   const PAGE_LIMIT = 10;
+  const [searchQuery, setSearchQuery] = useState<string>("");
   const [list, setList] = useState<FaqItem[]>([]);
   const [pageInfo, setPageInfo] = useState<PageInfo>(initialPageInfo);
-  const { value, onChange } = useInput(); // 검색 입력 상태 관리
   const [selectedTab, setSelectedTab] = useState<Tab>(config.tabs[0].id); // 탭 상태 관리
-  const [selectedCategory, setSelectedCategory] = useState<CategoryItem>({
-    categoryID: "ALL",
-    name: "전체",
-  }); // 카테고리 상태 관리
+  const [selectedCategory, setSelectedCategory] =
+    useState<CategoryItem>(initialCategory); // 카테고리 상태 관리
+
+  const getFaqList = useCallback(
+    async ({
+      tab,
+      categoryID,
+      query,
+      offset,
+    }: {
+      offset: number;
+      tab?: Tab;
+      categoryID?: string;
+      query?: string;
+    }) => {
+      const data = await fetchFaqList({
+        offset,
+        limit: PAGE_LIMIT,
+        tab: tab || selectedTab,
+        selectedCategory: categoryID || selectedCategory.categoryID,
+        query: query || "",
+      });
+
+      setList((prev) => [...prev, ...data.items]);
+      setPageInfo(data.pageInfo);
+    },
+    [selectedTab, selectedCategory.categoryID]
+  );
 
   const resetData = useCallback(() => {
     setList([]);
+    setSearchQuery("");
     setPageInfo(initialPageInfo);
   }, []);
 
   const onChangeTab = useCallback(
     (tab: Tab) => {
-      setSelectedTab(tab);
-      setSelectedCategory({
-        categoryID: "ALL",
-        name: "전체",
-      });
+      if (tab === selectedTab) {
+        return;
+      }
       resetData();
+      setSelectedTab(tab);
+      setSelectedCategory(initialCategory);
+      getFaqList({
+        offset: 0,
+        tab,
+        categoryID: initialCategory.categoryID,
+      });
     },
-    [resetData]
+    [getFaqList, resetData, selectedTab]
   );
 
   const onChangeCategory = useCallback(
     (category: CategoryItem) => {
-      setSelectedCategory(category);
+      if (category.categoryID === selectedCategory.categoryID) {
+        return;
+      }
       resetData();
+      setSelectedCategory(category);
+      getFaqList({
+        offset: 0,
+        categoryID: category.categoryID,
+      });
     },
-    [resetData]
+    [getFaqList, resetData, selectedCategory.categoryID]
   );
 
-  const getFaqList = useCallback(async () => {
-    const data = await fetchFaqList({
-      offset: pageInfo.offset,
-      limit: PAGE_LIMIT,
-      tab: selectedTab,
-      selectedCategory: selectedCategory.categoryID,
-    });
-    setList((prev) => [...prev, ...data.items]);
-    setPageInfo(data.pageInfo);
-  }, [pageInfo.offset, selectedTab, selectedCategory.categoryID]);
+  const onChangeSearchQuery = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const onSubmit = useCallback(() => {
+    if (searchQuery.length > 0) {
+      setList([]);
+      getFaqList({
+        offset: 0,
+        query: searchQuery,
+      });
+    } else {
+      alert("검색어를 입력해주세요.");
+    }
+  }, [getFaqList, searchQuery]);
 
   // 더보기 클릭시 추가 API 호출
   const loadMore = useCallback(() => {
@@ -66,15 +112,23 @@ export function useFaq() {
       ...pageInfo,
       offset: pageInfo.nextOffset,
     });
-  }, [pageInfo]);
+
+    getFaqList({
+      tab: selectedTab,
+      categoryID: selectedCategory.categoryID,
+      offset: pageInfo.nextOffset,
+    });
+  }, [getFaqList, pageInfo, selectedCategory.categoryID, selectedTab]);
 
   useEffect(() => {
-    getFaqList();
-  }, [selectedTab, value, selectedCategory, pageInfo.offset, getFaqList]);
+    getFaqList({
+      offset: 0,
+      tab: selectedTab,
+      categoryID: selectedCategory.categoryID,
+    });
+  }, []);
 
   return {
-    value,
-    onChange,
     selectedTab,
     onChangeTab,
     selectedCategory,
@@ -82,5 +136,8 @@ export function useFaq() {
     list,
     hassMore: pageInfo.nextOffset < pageInfo.totalRecord,
     loadMore,
+    searchQuery,
+    onChangeSearchQuery,
+    onSubmit,
   };
 }

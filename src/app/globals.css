@@ -354,10 +354,10 @@ iframe {
     --side-padding: 48px;
     --bottom-padding: 96px;
     --h1-height: 222px;
-    --h1-fsize: 56px;
-    --h1-fsize-sm: 18px;
+    --h1-fsize: 48px;
+    --h1-fsize-sm: 20px;
     --tab-fsize: 20px;
-    --search-bar-width: 480px;
+    --search-bar-width: 100%;
     --gallery-list-length: 3;
     --gallery-list-space: var(--space-md);
     --gallery-list-title-space: 20px;

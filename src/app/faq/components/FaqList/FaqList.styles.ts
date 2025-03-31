@@ -20,6 +20,7 @@ export const faqListCss = {
     padding-right: calc(var(--px-xlg) + 1.6em);
     position: relative;
     width: 100%;
+    cursor: pointer;
     &:after {
       transition: transform 0.4s var(--cubic-bezier-primary),
         -webkit-transform 0.4s var(--cubic-bezier-primary);
@@ -61,6 +62,7 @@ export const faqListCss = {
     flex: 1 1;
     padding-left: var(--faq-list-a-padding-h);
     text-align: left;
+    word-break: keep-all;
     @media (max-width: 1023px) {
       margin: 0;
       min-width: 100%;
